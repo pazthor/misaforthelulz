@@ -12,9 +12,11 @@ class Journaler : Application()
         var ctx: Context? = null
     }
 
+
     override fun onCreate() {
         super.onCreate()
         ctx = applicationContext
+
         Log.v(tag,"[ ON CREATE ]")
     }
 
