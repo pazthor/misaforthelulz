@@ -10,6 +10,9 @@
 /captures
 .externalNativeBuild
 
+# Gradle files
+.gradle/
+build/
 
 ### AndroidStudio Patch ###
 
