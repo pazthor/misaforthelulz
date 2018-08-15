@@ -9,11 +9,9 @@
 /*/build
 /captures
 .externalNativeBuild
-
 # Gradle files
 .gradle/
 build/
 
 ### AndroidStudio Patch ###
-
 !/gradle/wrapper/gradle-wrapper.jar
