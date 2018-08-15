@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Misa ForThe LuLz</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title">MainActivity</string>
+    <string name="your_note_content_goes_here">Your notes goes here.</string>
+    <string name="pick_a_date">Pick a Date!</string>
+    <string name="pick_time">Pick Time</string>
 </resources>
