@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.util.Log
+import android.view.MenuItem
 import com.journaler.Journaler
 import com.journaler.R
 import com.journaler.fragment.ItemsFragment
@@ -35,6 +37,22 @@ class MainActivity : BaseActivity() {
 //                    .commit()
 //        }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.drawing_menu -> {
+                Log.v(tag, "Main menu")
+                return true
+            }
+            R.id.options_menu -> {
+                Log.v(tag, "Options Menu.")
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+
     private class ViewPagerAdapter(manager: FragmentManager) :
             FragmentStatePagerAdapter(manager){
         override fun getItem(position: Int): Fragment {
