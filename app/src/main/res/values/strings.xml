@@ -6,5 +6,10 @@
     <string name="pick_a_date">Pick a Date!</string>
     <string name="pick_time">Pick Time</string>
     <string name="lorem_ipsum_sit_dolore">lorem_ipsum_sit_dolore</string>
-    <string name="mnu">mnu</string>
+    <string name="mnu">menu*</string>
+    <string name="next_seven_days">next_seven_days</string>
+    <string name="today">Today</string>
+    <string name="todos">Todos</string>
+    <string name="notes">Notes</string>
+    <string name="choose_a_type">choose a type</string>
 </resources>

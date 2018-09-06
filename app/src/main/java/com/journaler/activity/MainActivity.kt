@@ -10,6 +10,8 @@ import com.journaler.Journaler
 import com.journaler.R
 import com.journaler.fragment.ItemsFragment
 import com.journaler.fragment.ManualFragment
+import com.journaler.navigation.NavigationDrawerAdapter
+import com.journaler.navigation.NavigationDrawerItem
 import kotlinx.android.synthetic.main.activity_header.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,41 +20,6 @@ class MainActivity : BaseActivity() {
     override fun getLayout() = R.layout.activity_main
     override fun getActivityTittle() = R.string.app_name
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        pager.adapter = ViewPagerAdapter(supportFragmentManager)
-//        val fragment = ItemsFragment()
-//        supportFragmentManager
-//                .beginTransaction()
-//                .add(R.id.fragment_container, fragment)
-//                .commit()
-//
-//        filter_menu.setText("H")
-//        filter_menu.setOnClickListener{
-//            val userManualFrg = ManualFragment()
-//            supportFragmentManager
-//                    .beginTransaction()
-//                    .replace(R.id.fragment_container, userManualFrg)
-//                    .addToBackStack("user manual")
-//                    .commit()
-//        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.drawing_menu -> {
-                Log.v(tag, "Main menu")
-                return true
-            }
-            R.id.options_menu -> {
-                Log.v(tag, "Options Menu.")
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
-
-
     private class ViewPagerAdapter(manager: FragmentManager) :
             FragmentStatePagerAdapter(manager){
         override fun getItem(position: Int): Fragment {
@@ -60,6 +27,59 @@ class MainActivity : BaseActivity() {
         }
         override fun getCount(): Int{
             return 5
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
+        super.onCreate(savedInstanceState)
+        pager.adapter = ViewPagerAdapter(supportFragmentManager)
+
+        val menuItems = mutableListOf<NavigationDrawerItem>()
+        val today = NavigationDrawerItem(
+                getString(R.string.today),
+                Runnable {
+                    pager.setCurrentItem(0, true)
+                }
+        )
+
+        val next7Days = NavigationDrawerItem(
+                getString(R.string.next_seven_days),
+                Runnable {
+                    pager.setCurrentItem(1, true)
+                }
+        )
+
+        val todos = NavigationDrawerItem(
+                getString(R.string.todos),
+                Runnable {
+                    pager.setCurrentItem(2, true)
+                }
+        )
+
+        val notes = NavigationDrawerItem(
+                getString(R.string.notes),
+                Runnable {
+                    pager.setCurrentItem(3, true)
+                }
+        )
+
+        menuItems.add(today)
+        menuItems.add(next7Days)
+        menuItems.add(todos)
+        menuItems.add(notes)
+
+        val navigationDrawerAdapter = NavigationDrawerAdapter(this, menuItems)
+        left_drawer.adapter = navigationDrawerAdapter
+    }
+
+    override fun onOptionsItemSelected(item:MenuItem):  Boolean{
+        when (item.itemId){
+            R.id.options_menu -> {
+                Log.v(tag,"Options menu")
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 }
