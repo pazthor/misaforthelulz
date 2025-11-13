@@ -1,0 +1,10 @@
+# Foucault Power Systems Framework - Python Requirements
+# Python 3.8+ required
+
+# Core dependencies (none - pure Python implementation)
+# All functionality is implemented using Python standard library
+
+# Optional development dependencies
+# pytest>=7.0.0  # For testing
+# black>=22.0.0  # For code formatting
+# mypy>=0.950    # For type checking

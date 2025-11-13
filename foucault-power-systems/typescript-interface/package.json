@@ -1,0 +1,30 @@
+{
+  "name": "foucault-power-systems-ts",
+  "version": "1.0.0",
+  "description": "TypeScript interface for Foucault Power Systems Framework",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "demo": "ts-node src/demo.ts",
+    "analyze": "ts-node src/cli.ts"
+  },
+  "keywords": [
+    "foucault",
+    "power-systems",
+    "philosophy",
+    "surveillance",
+    "biopower",
+    "knowledge"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
